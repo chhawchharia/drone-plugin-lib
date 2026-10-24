@@ -13,11 +13,11 @@ pool:
 steps:
 - name: staticcheck
   pull: always
-  image: harness0.harness.io/oci/docker_artifacts/hhi/go:1.26.10
+  image: harness0.harness.io/oci/docker_artifacts/hhi/go:1.26.10@sha256:718fddf012b3a305e936ae9964e5a642036bcb7b4c6c0786e2f78f238d637db8
   environment:
     GO111MODULE: "on" # Explicitly enable Go modules
   commands:
-  - go install honnef.co/go/tools/cmd/staticcheck@v0.4.3
+  - go install honnef.co/go/tools/cmd/staticcheck@v0.8.2
   - staticcheck ./...
   volumes:
   - name: gopath
@@ -25,7 +25,7 @@ steps:
 
 - name: lint
   pull: always
-  image: harness0.harness.io/oci/docker_artifacts/hhi/go:1.26.10
+  image: harness0.harness.io/oci/docker_artifacts/hhi/go:1.26.10@sha256:718fddf012b3a305e936ae9964e5a642036bcb7b4c6c0786e2f78f238d637db8
   commands:
   - go get golang.org/x/lint/golint
   - go run golang.org/x/lint/golint -set_exit_status ./...
@@ -35,7 +35,7 @@ steps:
 
 - name: vet
   pull: always
-  image: harness0.harness.io/oci/docker_artifacts/hhi/go:1.26.10
+  image: harness0.harness.io/oci/docker_artifacts/hhi/go:1.26.10@sha256:718fddf012b3a305e936ae9964e5a642036bcb7b4c6c0786e2f78f238d637db8
   commands:
   - go vet ./...
   volumes:
@@ -44,7 +44,7 @@ steps:
 
 - name: test
   pull: always
-  image: harness0.harness.io/oci/docker_artifacts/hhi/go:1.26.10
+  image: harness0.harness.io/oci/docker_artifacts/hhi/go:1.26.10@sha256:718fddf012b3a305e936ae9964e5a642036bcb7b4c6c0786e2f78f238d637db8
   commands:
   - go test -cover -v ./...
   volumes:

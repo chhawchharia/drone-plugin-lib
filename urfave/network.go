@@ -34,7 +34,6 @@ func NetworkFromContext(c *cli.Context) drone.Network {
 	dialer := &net.Dialer{
 		Timeout:   30 * time.Second,
 		KeepAlive: 30 * time.Second,
-		DualStack: true,
 	}
 
 	transport := &http.Transport{
