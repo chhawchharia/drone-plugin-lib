@@ -17,7 +17,7 @@ steps:
   environment:
     GO111MODULE: "on" # Explicitly enable Go modules
   commands:
-  - go install honnef.co/go/tools/cmd/staticcheck@v0.4.3
+  - go install honnef.co/go/tools/cmd/staticcheck@v0.7.0
   - staticcheck ./...
   volumes:
   - name: gopath
